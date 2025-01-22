@@ -2,13 +2,42 @@ import os
 import json
 from flask import Flask, request, render_template
 from datetime import date
+from flask_mail import Mail, Message
+from twilio.rest import Client
 
 app = Flask(__name__)
+
+# Flask-Mail კონფიგურაცია
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'your_email@gmail.com'  # თქვენი E-mail
+app.config['MAIL_PASSWORD'] = 'your_password'  # თქვენი პაროლი
+
+mail = Mail(app)
+
+# Twilio კონფიგურაცია
+account_sid = 'your_twilio_account_sid'
+auth_token = 'your_twilio_auth_token'
+twilio_phone_number = 'your_twilio_phone_number'
+client = Client(account_sid, auth_token)
+
+def send_email(to, subject, body):
+    msg = Message(subject, recipients=[to])
+    msg.body = body
+    mail.send(msg)
+
+def send_sms(to, body):
+    message = client.messages.create(
+        body=body,
+        from_=twilio_phone_number,
+        to=to
+    )
 
 # მონაცემთა ფაილის სახელია tasks.json
 filename = 'tasks.json'
 
-#დრო
+# დრო
 datetoday = date.today().strftime("%m_%d_%y")
 
 # JSON ფაილის შექმნა, თუ ის არ არსებობს
@@ -45,18 +74,29 @@ def add_task():
     user = request.form.get('user')
     project = request.form.get('project')
     deadline = request.form.get('deadline')
+    user_email = request.form.get('email')  # დაამატეთ email
+    user_phone = request.form.get('phone')  # დაამატეთ phone
 
     new_task = {
         "user": user,
         "project": project,
-        "deadline": deadline
+        "deadline": deadline,
+        "email": user_email,  # Email-ის დამატება
+        "phone": user_phone   # ტელეფონის ნომრის დამატება
     }
     
     tasklist = get_task_list()
     tasklist.append(new_task)
     updatetasklist(tasklist)
 
-    return render_template('home.html', datetoday=date.today().strftime("%m_%d_%y"), tasklist=tasklist, l=len(tasklist))
+    # მეილისა და SMS-ის გაგზავნა
+    subject = f"პროექტის დედლაინი {project}"
+    body = f"მოგესალმებით {user},\n\nთქვენ მიერ შერჩეული პროექტის დედლაინი მოახლოვდა. გთხოვთ გაითვალისწინოთ, რომ პროექტზე '{project}' რეგისტრაცია სრულდება: {deadline}.\n წარმატებები!"
+    
+    send_email(user_email, subject, body)  # Email გაგზავნა
+    send_sms(user_phone, body)  # SMS გაგზავნა
+
+    return render_template('home.html', datetoday=date.today().strftime("%m_%d_%y"), tasklist=tasklist, l=len(tasklist), message="დედლაინი წარმატებით გაიგზავნა!")
 
 
 # ტასკის წაშლა

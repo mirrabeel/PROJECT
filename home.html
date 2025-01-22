@@ -29,6 +29,8 @@
                         <th>მომხმარებელი</th>
                         <th>პროექტი</th>
                         <th>დედლაინი</th>
+                        <th>მეილი</th>
+                        <th>ტელეფონი</th>
                         <th>წაშლა</th>
                     </tr>
                 </thead>
@@ -39,6 +41,8 @@
                         <td>{{ tasklist[i].user }}</td>
                         <td>{{ tasklist[i].project }}</td>
                         <td>{{ tasklist[i].deadline }}</td>
+                        <td>{{ tasklist[i].email }}</td>  
+                        <td>{{ tasklist[i].phone }}</td>  
                         <td><a href="/deltask?deltaskid={{ i }}"><button type='submit' class='btn btn-danger'>წაშლა</button></a></td>
                     </tr>
                     {% endfor %}
@@ -50,7 +54,7 @@
         <div class="col"
              style="border-radius: 20px;padding: 20px;background-color: #f8f9fa;margin:0px 10px 10px 10px;">
              <form action='/addtask' method="POST">
-                <h2 style="background-color: #0b4c61;color: white;padding: 10px;">დაამატე მომხმარებელი</h2>
+                <h2 style="background-color: #0b4c61;color: white;padding: 10px;">ინფორმაციის შეყვანა</h2>
                 
                 <label style="font-size: 20px;"><b>შეიყვანე სახელი, გვარი*</b></label><br>
                 <input type="text" name='user' style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required><br>
@@ -60,6 +64,12 @@
                 
                 <label style="font-size: 20px;"><b>შეიყვანე დედლაინი*</b></label><br>
                 <input type="text" name='deadline' style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required><br>
+
+                <label style="font-size: 20px;"><b>შეიყვანე მეილი*</b></label><br>
+                <input type="email" name='email' style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required><br>
+                
+                <label style="font-size: 20px;"><b>შეიყვანე ტელეფონის ნომერი*</b></label><br>
+                <input type="text" name='phone' style="font-size: 20px;margin-top:10px;margin-bottom:10px;" required><br>
                 
                 <button style="width: 232px;margin-top: 20px;font-size: 20px;" type='submit' class='btn btn-dark'>
                     დამატება
@@ -79,6 +89,7 @@
     </script>
 </body>
 </html>
+
 
 
 
