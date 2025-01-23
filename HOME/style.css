@@ -237,7 +237,7 @@ html::-webkit-scrollbar-thumb {
     .navbar {
         position: fixed;
         top: 0;
-        right: -100%; /* მენიუ დამალულია მარჯვნივ */
+        right: 1000%; /* მენიუ დამალულია მარჯვნივ */
         width: 30rem;
         background: #fff; /* ფერის სწორი მითითება */
         height: 100%;
@@ -253,7 +253,7 @@ html::-webkit-scrollbar-thumb {
         margin: 1rem 0;
         text-align: center;
         font-size: 3rem;
-        color: #333; /* ტექსტის ფერი */
+        color: white; /* ტექსტის ფერი */
     }
 
     /* მენიუ გახსნის ანიმაცია, როცა ღილაკი არის გახსნილი */
@@ -268,37 +268,37 @@ html::-webkit-scrollbar-thumb {
     }
 }
 
-.account-form {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 35rem;
-    background: #fff; /* თეთრი ფონი */
+
+.navbars {
     display: flex;
-    flex-flow: column;
-    gap: 2rem;
     justify-content: center;
-    height: 100%;
-    box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
-    z-index: 1200;
-    padding: 2rem;
+    background-color: #1480be;
+    border-radius: 5px;
+    margin-left: 20px; 
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ჩრდილი მთელ navbar-ს */
 }
 
-.close-form {
-    position: absolute;
-    top: 1.5rem;
-    right: 2.5rem;
-    font-size: 4rem;
-    cursor: pointer;
-    color: #000; /* შავი ფერი */
+
+.navbars a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* ზომის ცვლილება ჰოვერის დროს */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* ჩრდილი ღილაკზე */
 }
 
-/* hover ეფექტი */
-.close-form:hover {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease; /* ტრანსიცია */
+.navbars a:hover {
+    background-color: #0d6090;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* უფრო ღრმა ჩრდილი */
+    transform: scale(1.); /* ზომის ოდნავი ზრდა */
 }
 
+
+
+  
 
 
 
@@ -322,3 +322,5 @@ html::-webkit-scrollbar-thumb {
     line-height: 2;
     color: var(--light-color);
 }
+
+
