@@ -1,0 +1,187 @@
+<!DOCTYPE html> <!-- ეს სტრუქტურული ჩანაწერია, რომელიც ამბობს ბრაუზერს, რომ ეს არის HTML5 დოკუმენტი -->
+<html lang="en"> <!-- აღნიშნავს HTML დოკუმენტის დაწყებას და რომ ენაზე გამოიყენება ინგლისური -->
+<head>
+  <meta charset="UTF-8"> <!-- მნიშნავს დოკუმენტის კოდირებას, რომ სწორად დაიტვირთოს ქართული ან სხვა ენების ტექსტი -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ამცნობს ბრაუზერს, რომ გვერდი უნდა იყოს ადაპტირებული მობილურ მოწყობილობებზე -->
+  <title>SIGN UP</title> <!-- გვერდის სათაური, რომელიც გამოჩნდება ბრაუზერის ტაბში -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Boxicons ბიბლიოთეკის ჩასმა ხატულების სანახავად -->
+  <style>
+    * { /* სტილები ყველა ელემენტისთვის */
+      margin: 0; /* შიდა დაშორება */
+      padding: 0; /* გარე დაშორება */
+      box-sizing: border-box; /* საზღვრები და შიდა დაშორებები არ ანიჭებენ დამატებით სივრცეს */
+      font-family: "Poppins", sans-serif; /* ტექსტი იქნება Poppins შრიფტით */
+    }
+
+    body { /* სხეულის სტილი */
+      display: flex; /* გამოიყენება ფლექსბოქსი */
+      justify-content: center; /* გაასწორებს შიგნით ელემენტებს ცენტრში */
+      align-items: center; /* ცენტრში ვერტიკალურად გაასწორებს */
+      min-height: 100vh; /* მინიმუმ სრული სიმაღლე */
+      background: url(51dce6f2a7efa8981c57ebe54943fa01.gif); /* ფონზე GIF სურათის ჩასმა */
+      background-size: cover; /* ფონი შევსებულია ეკრანის მთლიანი ფართობი */
+      background-position: center; /* ფონური სურათი განლაგებულია ცენტრში */
+    }
+
+    .wrapper { /* ამ კონტეინერში იქნება ფორმები */
+      display: flex; /* again uses flexbox for layout */
+      justify-content: center; /* ensures elements inside wrapper are centered */
+      width: 80%; /* კონტეინერის სიგანე 80% */
+      max-width: 1000px; /* მაქსიმალური სიგანე 1000px */
+    }
+
+    .form-container { /* ფორმის კონტეინერი */
+      width: 100%; /* 100% სიგანე */
+      max-width: 400px; /* მაქსიმუმი სიგანე 400px */
+      background: rgba(255, 255, 255, 0.2); /* ნახევრად გამჭვირვალე თეთრი ფონი */
+      padding: 30px; /* შიდა დაშორება */
+      border-radius: 24px; /* მრგვალი კუთხეები */
+      backdrop-filter: blur(3px); /* ფონზე დაბინდვა */
+      color: white; /* თეთრი ტექსტი */
+    }
+
+    .form-container h1 { /* ფორმის სათაური */
+      text-align: center; /* ცენტრში ტექსტი */
+      font-size: 36px; /* შრიფტის ზომა */
+      font-weight: 320; /* შრიფტის სისქე */
+      letter-spacing: 0.5px; /* ასოებს შორის დაშორება */
+      margin-bottom: 20px; /* ქვედა მარჟინი */
+    }
+
+    .input-box { /* შესაყვანი ველის კონტეინერი */
+      position: relative; /* რელატიური პოზიციონირება */
+      margin: 20px 0; /* 20px მარჟინი ზედა და ქვედა */
+    }
+
+    .input-box input { /* შესაყვანი ველის სტილი */
+      width: 100%; /* 100% სიგანე */
+      padding: 15px 50px 15px 20px; /* შიდა დაშორება */
+      background: transparent; /* გამჭვირვალე ფონდი */
+      border: 2px solid rgba(255, 255, 255, 0.2); /* ოდნავ გამჭვირვალე საზღვარი */
+      border-radius: 50px; /* მრგვალი კუთხეები */
+      font-size: 16px; /* შრიფტის ზომა */
+      color: white; /* თეთრი ტექსტი */
+      backdrop-filter: blur(1px); /* ფონზე დაბინდვა */
+    }
+
+    .input-box input::placeholder { /* placeholder-ის სტილი */
+      color: white; /* თეთრი ფერი placeholder ტექსტისთვის */
+    }
+
+    .input-box i { /* ხატულა სტილი */
+      position: absolute; /* აბსოლუტური პოზიციონირება */
+      right: 20px; /* მარჯვენა მხრიდან 20px */
+      top: 50%; /* შუაში ჰორიზონტალურად */
+      transform: translateY(-50%); /* ვერტიკალურად ცენტრში გადატანა */
+      font-size: 20px; /* ხატულის ზომა */
+      color: white; /* თეთრი ფერი */
+    }
+
+    .button { /* ღილაკის სტილი */
+      width: 100%; /* 100% სიგანე */
+      padding: 15px; /* შიდა დაშორება */
+      background: white; /* თეთრი ფონდი */
+      border: none; /* საზღვრის გარეშე */
+      border-radius: 40px; /* მრგვალი კუთხეები */
+      font-size: 18px; /* შრიფტის ზომა */
+      color: black; /* შავი ტექსტი */
+      font-weight: 500; /* სიმკვრივე */
+      cursor: pointer; /* მაუსის კურსორი ღილაკზე */
+      transition: all 0.4s ease-in-out; /* ტრანზიცია ყველა ცვლილებისთვის */
+    }
+
+    .button:hover { /* ღილაკზე მაუსის გადატანისას */
+      background: #007bff; /* ცისფერი ფონდი */
+      color: white; /* თეთრი ტექსტი */
+    }
+
+    .login-link { /* ლინკის სტილი */
+      text-align: center; /* ცენტრში ტექსტი */
+      font-size: 14.5px; /* შრიფტის ზომა */
+    }
+
+    .login-link p a { /* ლინკი სტილი */
+      color: white; /* თეთრი ფერი */
+      text-decoration: none; /* ხაზგასმა გამორთული */
+      font-weight: 600; /* გაძლიერებული სიმკვრივე */
+    }
+
+    .login-link p a:hover { /* ლინკზე მაუსის გადატანისას */
+      text-decoration: underline; /* ხაზგასმა */
+    }
+
+    #register-form { /* რეგისტრაციის ფორმა დამალულია */
+      display: none; /* ფორმა არ ჩანს */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper"> <!-- კონტეინერი, რომელიც გამოიყენება ფორმის განლაგებისთვის -->
+    <!-- Login Form -->
+    <div id="login-form" class="form-container"> <!-- ფორმის კონტეინერი, რომელიც გამოჩნდება მხოლოდ შესვლისთვის -->
+      <h1>შესვლა</h1> <!-- ფორმის სათაური, ქართულად "შესვლა" -->
+      <form action=""> <!-- ფორმა, რომლის მოქმედება არ არის განსაზღვრული -->
+        <div class="input-box"> <!-- ველი, რომელიც მოიცავს ელ. ფოსტის შესატან საკანს -->
+          <input type="email" placeholder="ელ.ფოსტა" required> <!-- ელ. ფოსტის შესატანი ველი -->
+          <i class='bx bxs-envelope'></i> <!-- აქ ჩამოტვირთული ხატულა, რომელიც გამოჩნდება ფორმის გვერდით (ელ. ფოსტის ხატულა) -->
+        </div>
+        <div class="input-box"> <!-- ველი, რომელიც მოიცავს პაროლის შესატან საკანს -->
+          <input type="password" placeholder="პაროლი" required> <!-- პაროლის შესატანი ველი -->
+          <i class='bx bxs-lock-alt'></i> <!-- პაროლის ხატულა -->
+        </div>
+        <button type="submit" class="button">შესვლა</button> <!-- ღილაკი, რომელიც ხორციელებს ფორმის გასაგზავნელს -->
+        <div class="login-link"> <!-- ლინკი, რომელიც მომხმარებელს საშუალებას აძლევს გადადით რეგისტრაციის ფორმაზე -->
+          <p>არ გაქვთ ანგარიში? <a href="#" onclick="showRegisterForm()">დარეგისტრირდით</a></p> <!-- ტექსტი და ლინკი, რომელიც ხსნის რეგისტრაციის ფორმას -->
+        </div>
+      </form>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="register-form" class="form-container"> <!-- რეგისტრაციის ფორმის კონტეინერი -->
+      <h1>რეგისტრაცია</h1> <!-- ფორმის სათაური -->
+      <form action=""> <!-- ფორმა, რომლის მოქმედება არ არის განსაზღვრული -->
+        <div class="input-box"> <!-- ველი სახელის შესატანად -->
+          <input type="text" placeholder="სახელი" required> <!-- სახელის შესატანი ველი -->
+          <i class='bx bx-user'></i> <!-- მომხმარებლის ხატულა -->
+        </div>
+        <div class="input-box"> <!-- ველი გვარის შესატანად -->
+          <input type="text" placeholder="გვარი" required>  <!-- გვარის შესატანი ველი -->
+          <i class='bx bx-user'></i> <!-- იგივე მომხმარებლის ხატულა, რადგან ეს კიდევ ერთი პერსონალური მონაცემია -->
+        </div>
+        <div class="input-box"> <!-- ველი ასაკის შესატანად -->
+          <input type="text" placeholder="ასაკი" required> <!-- ასაკის შესატანი ველი -->
+          <i class='bx bxs-calendar'></i> <!-- კალენდრის ხატულა -->
+        </div>
+        <div class="input-box"> <!-- ველი ელ. ფოსტის შესატანად -->
+          <input type="email" placeholder="ელ.ფოსტა" required> <!-- ელ. ფოსტის შესატანი ველი -->
+          <i class='bx bxs-envelope'></i> <!-- ელ. ფოსტის ხატულა -->
+        </div>
+        <div class="input-box"> <!-- ველი პაროლის შესატანად -->
+          <input type="password" placeholder="პაროლი" required> <!-- პაროლის შესატანი ველი -->
+          <i class='bx bxs-lock-alt'></i> <!-- პაროლის ხატულა -->
+        </div>
+        <div class="input-box"> <!-- ველი პაროლის დადასტურებისთვის -->
+          <input type="password" placeholder="დაადასტურეთ პაროლი" required> <!-- პაროლის დადასტურების ველი-->
+          <i class='bx bxs-check-shield'></i> <!-- შეუერთებული ხატულა, რომელიც აღნიშნავს უსაფრთხოებას -->
+        </div>
+        <button type="submit" class="button">გაიარეთ რეგისტრაცია</button> <!-- რეგისტრაციის ღილაკი -->
+        <div class="login-link"> <!-- ლინკი შესვლის ფორმაზე გადასასვლელად -->
+          <p>უკვე დარეგისტრირებული ხართ? <a href="#" onclick="showLoginForm()">შესვლა</a></p> <!-- ტექსტი და ლინკი, რომელიც ხსნის შესვლის ფორმას -->
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showRegisterForm() {
+      document.getElementById('login-form').style.display = 'none'; // login form-ი დამალულია
+      document.getElementById('register-form').style.display = 'block'; // რეგისტრაციის ფორმა ჩანს
+    }
+
+    function showLoginForm() {
+      document.getElementById('register-form').style.display = 'none'; // რეგისტრაციის ფორმა დამალულია
+      document.getElementById('login-form').style.display = 'block'; // login form-ი ჩანს
+    }
+  </script>
+</body>
+</html>
