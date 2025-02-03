@@ -23,7 +23,7 @@
         }
 
         :root {
-            --blue: #6a4c9c; /* შეცვლილი იასამნისფერი */
+            --blue: #6a4c9c;
             --light-blue: #f0fdfa;
             --light-color: #777;
             --light-white: #eee;
@@ -139,66 +139,6 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
         }
 
-        #menu-btn {
-            display: none;
-        }
-
-        @media(max-width: 1200px) {
-            .header {
-                padding: 2rem 5%;
-            }
-
-            #menu-btn {
-                display: block;
-            }
-        }
-
-        @media(max-width: 991px) {
-            html {
-                font-size: 55%;
-            }
-
-            .header {
-                padding: 2rem;
-            }
-        }
-
-        @media(max-width: 768px) {
-            #menu-btn {
-                display: inline-block;
-            }
-
-            .navbar {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 30rem;
-                background: #fff;
-                height: 100%;
-                display: flex;
-                flex-flow: column;
-                justify-content: center;
-                transition: right 0.3s ease;
-            }
-
-            .navbar a {
-                display: block;
-                margin: 1rem 0;
-                text-align: center;
-                font-size: 3rem;
-            }
-
-            #menu-btn.open + .navbar {
-                right: 0;
-            }
-        }
-
-        @media(max-width: 450px) {
-            html {
-                font-size: 50%;
-            }
-        }
-
         footer {
             background-color: #6a4c9c;
             color: white;
@@ -243,23 +183,79 @@
             transform: scale(1.05);
         }
 
-        .grid {
+        /* Projects Section Styling */
+        #projects {
+            padding: 5rem 10%;
+            background-color: var(--light-blue);
+        }
+
+        #projects .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #projects .section-title {
+            font-size: 3rem;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #projects .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .title-text {
-            font-size: 2rem;
-            text-transform: capitalize;
-            color: var(--black);
+        .project-card {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .graph-text {
-            font-size: 1.6rem;
-            line-height: 2;
-            color: var(--light-color);
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card .title-text {
+            font-size: 2rem;
+            color: var(--blue);
+            margin: 1rem 0;
+        }
+
+        .project-card .graph-text {
+            font-size: 1.6rem;
+            color: var(--light-color);
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--blue);
+            color: var(--white);
+            font-size: 1.6rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        .project-card .btn:hover {
+            background-color: #50388d;
+        }
+
     </style>
 </head>
 <body>
@@ -282,6 +278,37 @@
         <a href="login.html" id="logoutbtn">Sign Out</a>
     </nav>
 </header>
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">პროექტები</h2>
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <h3 class="title-text">წიგნების თაროს სასკოლო სეზონი.</h3>
+                <p class="graph-text">წიგნების თაროს მე-15 სასკოლო სეზონში მონაწილეობის მიღება შეუძლიათ მე-10, მე-11 ან მე-12 კლასის მოსწავლეებისგან შემდგარ სამკაციან ჯგუფს.. პროექტის დედლაინი: 16 თებერვალი.</p>
+                <a href="https://www.facebook.com/share/p/19iUY5UPhH/?mibextid=wwXIfr" class="btn">იხილეთ დეტალები</a>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <h3 class="title-text">გაცვლითი პროექტი შვედეთში</h3>
+                <p class="graph-text">პროექტის თემა: დემოკრატია, ადამიანის უფლებები და გამოხატვის თავისუფლება.მონაწილეობის მიღება შეუძლიათ 22-45 წლის ადამიანებს. დედლაინი:18 თებერვალი</p>
+                <a href="https://www.facebook.com/share/p/18JmByF6w3/?mibextid=wwXIfr" class="btn">იხილეთ დეტალები</a>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+                <h3 class="title-text">გაცვლითი პროექტი ესპანეთში</h3>
+                <p class="graph-text">პროექტში "YOUTH ENTERPRICE PLAYGROUND" მონაწილეობის მიღება შეუძლიათ 18-25 წლის ადამიანებს.დაფინანსებულია ყველა ხარჯი. დედლაინი: 4 თებერვალი</p>
+                <a href="https://www.facebook.com/share/p/19z4eV3V8A/?mibextid=wwXIfr" class="btn">იხილეთ დეტალები</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer>
     <p>Bringing Dreams to Life | SkillVoyage</p>

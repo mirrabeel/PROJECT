@@ -1,46 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>ჩვენს შესახებ</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <style>
-        .team-container {
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+        
+        * {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            transition: all .2s linear;
+        }
+
+        :root {
+            --blue: #6a4c9c;
+            --light-blue: #f0fdfa;
+            --light-color: #777;
+            --light-white: #eee;
+            --black: #444;
+            --white: #fff;
+            --border: 0.1rem solid var(--blue);
+            --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--box-shadow);
+            padding: 2rem 10%;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            margin-right: auto;
+            font-size: 2.5rem;
+            text-transform: capitalize;
+            color: var(--black);
+            font-weight: bolder;
+        }
+
+        .header .logo i {
+            color: var(--blue);
+        }
+
+        .navbar a {
+            margin-right: 5rem;
+            font-size: 2rem;
+            text-transform: capitalize;
+            color: var(--black);
+            transition: color 0.2s linear;
+        }
+
+        .navbar a:hover {
+            color: var(--blue);
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-form input {
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #ccc;
+            border-radius: 2rem;
+            outline: none;
+            font-size: 1.6rem;
+            width: 20rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-form input:focus {
+            border-color: #6a4c9c;
+            box-shadow: 0 0 5px rgba(106, 76, 156, 0.5);
+        }
+
+        .search-form button {
+            background: #6a4c9c;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
             justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-        .team-member {
-            margin: 20px;
+
+        .search-form button:hover {
+            background: #50388d;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: #6a4c9c;
+            color: white;
+            padding: 1.5rem 0;
             text-align: center;
-            max-width: 200px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
         }
-        .team-member img {
+
+        footer p {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .navbars {
+            display: flex;
+            justify-content: center;
+            background-color: #6a4c9c;
+            border-radius: 5px;
+            margin-left: 20px;
+            gap: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbars a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.4rem;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbars a:hover {
+            background-color: #50388d;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 2rem;
+        }
+
+        .title-text {
+            font-size: 2rem;
+            text-transform: capitalize;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .graph-text {
+            font-size: 1.6rem;
+            line-height: 2;
+            color: var(--light-color);
+        }
+
+        .media-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .media-section iframe {
+            width: 80%;
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .photo-section {
+            padding: 2rem;
+        }
+
+        .photo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .photo-item img {
             width: 100%;
-            border-radius: 50%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-right: 2rem;
+            transition: transform 0.3s ease;
         }
+
+        .photo-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item .description {
+            text-align: left;
+            color: var(--black);
+            font-size: 1.6rem;
+            width: 60%;
+            line-height: 1.6;
+            padding-left: 1rem;
+        }
+
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <h2>About Us</h2>
-        <iframe width="560" height="315" src="your-video-url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
 
-    <div class="team-container">
-        <div class="team-member">
-            <img src="team1.jpg" alt="Team Member 1">
-            <h3>John Doe</h3>
-            <p>CEO</p>
-            <p>John has over 10 years of experience...</p>
-        </div>
-        <div class="team-member">
-            <img src="team2.jpg" alt="Team Member 2">
-            <h3>Jane Smith</h3>
-            <p>CTO</p>
-            <p>Jane is passionate about tech...</p>
-        </div>
-        <!-- Add more team members as needed -->
+<header class="header">
+    <a href="home.html" class="logo"> <i class="fa-solid fa-graduation-cap"></i>SkillVoyage</a>
+    <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorials.html">Tutorials</a>
+        <a href="contact us.html">Contact Us</a>
+    </nav>
+
+    <form action="search.html" method="get" class="search-form">
+        <input type="text" name="query" placeholder="Search here..." required>
+        <button type="submit" class="fas fa-search"></button>
+    </form>
+
+    <nav class="navbars">
+        <a href="login.html" id="logoutbtn">Sign Out</a>
+    </nav>
+</header>
+
+<section class="media-section">
+    <div class="title-text">გაიგე უფრო მეტი ჩვენს შესახებ</div>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
+<section class="photo-section">
+    <div class="photo-item">
+        <img src="photo1.jpg" alt="Photo 1">
+        <div class="description">თამარ გამგებელი, 18 წლის: ვფიქრობ, არაფორმალური განათლება ყველასთვის მნიშვნელოვანია. მსგავსი სახის აქტივობებში ჩართვა ადამიანს უამრავ ახალ მეგობარს და საინტერესო ადამიანს სძენს. ჩვენი საიტის მთავარი მისია კი ეს არის, რაც შეიძლება მეტმა ადამიანმა გაიგოს მსგავსი სახის აქტივობების შესახებ.</div>
     </div>
+    <div class="photo-item">
+        <img src="photo2.jpg" alt="Photo 2">
+        <div class="description">ეთია ახალმოსულიშვილი, 18 წლის: ადამიანები არაფორმალურ აქტივობებში ჩართვისგან თავს იკავებენ რამდენიმე მიზეზის გამო: პირველ რიგში, არ იციან როგორ შექმნან ეფექტური სამოტივაციო წერილი, ასევე არ იციან სად ეძებონ მსგავსი სახის აქტივობები. ჩვენი საიტი კი ამ პრობლემას მოუგვარებს ადამიანებს.</div>
+    </div>
+    <div class="photo-item">
+        <img src="photo3.jpg" alt="Photo 3">
+        <div class="description">მირანდა მუქერია, 18 წლის: მნიშვნელოვანია არაფორმალურ აქტივობებში მრავალი ადამიანს ჩართვა, რაც მათ განუვითარებს კრიტიკული აზროვნების უნარსა და კომუნიკაციის შესაძლებლობებს.</div>
+    </div>
+    <div class="photo-item">
+        <img src="photo4.jpg" alt="Photo 4">
+        <div class="description">ლიკა გოგალაძე, 18 წლის: ხშირ შემთხვევაში ახალგაზრდები მსგავსი სახის აქტივობების მიმართ უნდობლობას განიცდიან. სწორედ ამიტომ, ვფიქრობ ჩვენი საიტის მეშვეობით ახალგაზრდები დეტალურად გაეცნობიან მსგავს აქტივობებს და შესაბამისად, ჩაერთვებიან და განვითარდებიან.</div>
+    </div>
+</section>
+
+<footer>
+    <p>Bringing Dreams to Life | SkillVoyage</p>
+</footer>
+
 </body>
 </html>
