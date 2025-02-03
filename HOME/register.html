@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>რეგისტრაცია</title>
+  <script>
+    function handleSubmit() {
+      const user = {
+        fullname: document.querySelector('input[name="fullname"]').value,
+        age: document.querySelector('input[name="age"]').value,
+        phone: document.querySelector('input[name="phone"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        password: document.querySelector('input[name="password"]').value,
+        password: document.querySelector('input[name="confirmPassword "]').value,
+      };
+
+      fetch('http://localhost:5001/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert(data.message);
+          window.location.href = "logo_animation.html"; 
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => console.error('Error:', error));
+
+      return false; 
+    }
+  </script>
+</head>
+<body>
+  <h1>რეგისტრაცია</h1>
+  <form onsubmit="return handleSubmit()">
+    <input type="text" name="fullname" placeholder="სახელი და გვარი" required>
+    <input type="number" name="age" placeholder="ასაკი" required>
+    <input type="tel" name="phone" placeholder="ტელეფონის ნომერი" required>
+    <input type="email" name="email" placeholder="ელ.ფოსტა" required>
+    <input type="password" name="password" placeholder="პაროლი" required>
+    <input type="password" name="confirm_password" placeholder="დაადასტურეთ პაროლი" required>
+    <button type="submit">გაიარეთ რეგისტრაცია</button>
+  </form>
+</body>
+</html>
