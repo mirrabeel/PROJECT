@@ -39,100 +39,120 @@
         }
 
         .header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            box-shadow: var(--box-shadow);
-            padding: 2rem 10%;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-        }
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 10%;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
 
-        .header .logo {
-            margin-right: auto;
-            font-size: 2.5rem;
-            text-transform: capitalize;
-            color: var(--black);
-            font-weight: bolder;
-        }
+.header .logo {
+    margin-right: auto;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: var(--black);
+    font-weight: bolder;
+}
 
-        .header .logo i {
-            color: var(--blue);
-        }
+.header .logo i {
+    color: var(--blue);
+}
 
-        .navbar a {
-            margin-right: 5rem;
-            font-size: 2rem;
-            text-transform: capitalize;
-            color: var(--black);
-            transition: color 0.2s linear;
-        }
+.navbar a {
+    margin-right: 5rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--black);
+    transition: color 0.2s linear;
+}
 
-        .navbar a:hover {
-            color: var(--blue);
-        }
+.navbar a:hover {
+    color: var(--blue);
+}
 
-        .search-form {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+.icons div {
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-left: 3rem;
+}
 
-        .search-form input {
-            padding: 0.8rem 1.2rem;
-            border: 2px solid #ccc;
-            border-radius: 2rem;
-            outline: none;
-            font-size: 1.6rem;
-            width: 20rem;
-            transition: border-color 0.3s ease;
-        }
+.icons div:hover {
+    color: var(--blue);
+}
 
-        .search-form input:focus {
-            border-color: #6a4c9c;
-            box-shadow: 0 0 5px rgba(106, 76, 156, 0.5);
-        }
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-        .search-form button {
-            background: #6a4c9c;
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            font-size: 1.6rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+.search-form input {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 2rem;
+    outline: none;
+    font-size: 1.6rem;
+    width: 20rem;
+    transition: border-color 0.3s ease;
+}
 
-        .search-form button:hover {
-            background: #50388d;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
-        }
+.search-form input:focus {
+    border-color: #6a4c9c;
+    box-shadow: 0 0 5px rgba(106, 76, 156, 0.5);
+}
 
-        footer {
-            background-color: #6a4c9c;
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-        }
+.search-form button {
+    background: #6a4c9c;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
 
-        footer p {
-            margin: 0;
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
+.search-form button:hover {
+    background: #50388d;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbars {
+    display: flex;
+    justify-content: center;
+    background-color: #6a4c9c;
+    border-radius: 5px;
+    margin-left: 20px;
+    gap: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbars a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbars a:hover {
+    background-color: #50388d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
 
         .navbars {
             display: flex;
@@ -167,62 +187,125 @@
         }
 
         .title-text {
-            font-size: 2rem;
-            text-transform: capitalize;
-            color: var(--black);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-        .graph-text {
-            font-size: 1.6rem;
-            line-height: 2;
-            color: var(--light-color);
-        }
+.graph-text {
+    font-size: 1.6rem;
+    line-height: 2;
+    color: var(--light-color);
+}
 
-        .media-section {
-            padding: 2rem;
-            text-align: center;
-        }
+.media-section {
+    padding: 2rem;
+    text-align: center;
+}
 
-        .media-section iframe {
-            width: 80%;
-            height: 300px;
-            margin-bottom: 2rem;
-        }
+.media-section iframe {
+    width: 80%;
+    height: 300px;
+    margin-bottom: 2rem;
+}
 
-        .photo-section {
-            padding: 2rem;
-        }
+.photo-section {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
 
-        .photo-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
+.team-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
 
-        .photo-item img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            margin-right: 2rem;
-            transition: transform 0.3s ease;
-        }
+.team-title::before, .team-title::after {
+    content: "\2726"; /* ლამაზი სიმბოლო */
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin: 0 1rem;
+}
 
-        .photo-item img:hover {
-            transform: scale(1.05);
-        }
+.team-title::after {
+    display: block;
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 0.5rem auto 0;
+}
 
-        .photo-item .description {
-            text-align: left;
-            color: var(--black);
-            font-size: 1.6rem;
-            width: 60%;
-            line-height: 1.6;
-            padding-left: 1rem;
-        }
+.photo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+
+.photo-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+}
+
+.photo-item .description {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: var(--black);
+    line-height: 1.6;
+}
+
+
+        .contact-footer{
+    padding: 2rem 0;
+    background:#6a4c9c;
+}
+.contact-footer h3{
+    font-size: 1.6rem; /* Increased from 1.3rem to 1.6rem */
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.social-links{
+    display: flex;
+    justify-content: center;
+}
+.social-links a{
+    text-decoration: none;
+    width: 50px; /* Increased size of icons */
+    height: 50px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4rem;
+    font-size: 2rem; /* Increased from default size to 2rem */
+    transition: all 0.4s ease;
+}
+.social-links a:hover{
+    color: #646464;
+    border-color: #646464;
+}
 
     </style>
 </head>
@@ -252,28 +335,51 @@
     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 
-<section class="photo-section">
-    <div class="photo-item">
-        <img src="photo1.jpg" alt="Photo 1">
-        <div class="description">თამარ გამგებელი, 18 წლის: ვფიქრობ, არაფორმალური განათლება ყველასთვის მნიშვნელოვანია. მსგავსი სახის აქტივობებში ჩართვა ადამიანს უამრავ ახალ მეგობარს და საინტერესო ადამიანს სძენს. ჩვენი საიტის მთავარი მისია კი ეს არის, რაც შეიძლება მეტმა ადამიანმა გაიგოს მსგავსი სახის აქტივობების შესახებ.</div>
-    </div>
-    <div class="photo-item">
-        <img src="photo2.jpg" alt="Photo 2">
-        <div class="description">ეთია ახალმოსულიშვილი, 18 წლის: ადამიანები არაფორმალურ აქტივობებში ჩართვისგან თავს იკავებენ რამდენიმე მიზეზის გამო: პირველ რიგში, არ იციან როგორ შექმნან ეფექტური სამოტივაციო წერილი, ასევე არ იციან სად ეძებონ მსგავსი სახის აქტივობები. ჩვენი საიტი კი ამ პრობლემას მოუგვარებს ადამიანებს.</div>
-    </div>
-    <div class="photo-item">
-        <img src="photo3.jpg" alt="Photo 3">
-        <div class="description">მირანდა მუქერია, 18 წლის: მნიშვნელოვანია არაფორმალურ აქტივობებში მრავალი ადამიანს ჩართვა, რაც მათ განუვითარებს კრიტიკული აზროვნების უნარსა და კომუნიკაციის შესაძლებლობებს.</div>
-    </div>
-    <div class="photo-item">
-        <img src="photo4.jpg" alt="Photo 4">
-        <div class="description">ლიკა გოგალაძე, 18 წლის: ხშირ შემთხვევაში ახალგაზრდები მსგავსი სახის აქტივობების მიმართ უნდობლობას განიცდიან. სწორედ ამიტომ, ვფიქრობ ჩვენი საიტის მეშვეობით ახალგაზრდები დეტალურად გაეცნობიან მსგავს აქტივობებს და შესაბამისად, ჩაერთვებიან და განვითარდებიან.</div>
-    </div>
+<section class="team-section">
+    <h2 class="team-title">Our Team</h2>
+    <section class="photo-section">
+        <div class="photo-item">
+            <img src="photo1.jpg" alt="Photo 1">
+            <div class="description">
+                <strong>თამარ გამგებელი, 18 წლის</strong>
+                <p>ვფიქრობ, არაფორმალური განათლება ყველასთვის მნიშვნელოვანია. მსგავსი სახის აქტივობებში ჩართვა ადამიანს უამრავ ახალ მეგობარს და საინტერესო ადამიანს სძენს. ჩვენი საიტის მთავარი მისია კი ეს არის, რაც შეიძლება მეტმა ადამიანმა გაიგოს მსგავსი სახის აქტივობების შესახებ.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="photo2.jpg" alt="Photo 2">
+            <div class="description">
+                <strong>ეთია ახალმოსულიშვილი, 18 წლის</strong>
+                <p>ადამიანები არაფორმალურ აქტივობებში ჩართვისგან თავს იკავებენ რამდენიმე მიზეზის გამო: პირველ რიგში, არ იციან როგორ შექმნან ეფექტური სამოტივაციო წერილი, ასევე არ იციან სად ეძებონ მსგავსი სახის აქტივობები. ჩვენი საიტი კი ამ პრობლემას მოუგვარებს ადამიანებს.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="photo3.jpg" alt="Photo 3">
+            <div class="description">
+                <strong>მირანდა მუქერია, 18 წლის</strong>
+                <p>მნიშვნელოვანია არაფორმალურ აქტივობებში მრავალი ადამიანის ჩართვა, რაც მათ განუვითარებს კრიტიკული აზროვნების უნარსა და კომუნიკაციის შესაძლებლობებს.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="photo4.jpg" alt="Photo 4">
+            <div class="description">
+                <strong>ლიკა გოგალაძე, 18 წლის</strong>
+                <p>ხშირ შემთხვევაში ახალგაზრდები მსგავსი სახის აქტივობების მიმართ უნდობლობას განიცდიან. სწორედ ამიტომ, ვფიქრობ ჩვენი საიტის მეშვეობით ახალგაზრდები დეტალურად გაეცნობიან მსგავს აქტივობებს და შესაბამისად, ჩაერთვებიან და განვითარდებიან.</p>
+            </div>
+        </div>
+    </section>
 </section>
 
-<footer>
-    <p>Bringing Dreams to Life | SkillVoyage</p>
-</footer>
+
+<div class = "contact-footer">
+    <h3>Bringing Dreams to Life | SkillVoyage</h3>
+    <h3>Follow Us</h3>
+    <div class = "social-links">
+      <a href = "#" class = "fab fa-facebook-f"></a>
+      <a href = "#" class = "fab fa-twitter"></a>
+      <a href = "#" class = "fab fa-instagram"></a>
+      <a href = "#" class = "fab fa-linkedin"></a>
+      <a href = "#" class = "fab fa-youtube"></a>
+    </div>
 
 </body>
 </html>
