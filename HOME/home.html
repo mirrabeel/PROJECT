@@ -357,9 +357,9 @@ html::-webkit-scrollbar-thumb {
 </section>
 
 <!-- Select Form -->
-<div class="project-selection">
-
-    <form action="submit_project.php" method="POST">
+  <!-- Select Form -->
+  <div class="project-selection">
+    <form id="project-form">
         <select name="project" id="project-select">
             <option value="project1">წიგნების თაროს სასკოლო სეზონი</option>
             <option value="project2">გაცვლითი პროექტი შვედეთში</option>
@@ -371,21 +371,19 @@ html::-webkit-scrollbar-thumb {
         <button type="submit" class="btn">შეარჩიე პროექტი</button>
     </form>
 </div>
-
-<!-- Success Message Section (Hidden by default) -->
 <div id="success-message" style="display: none; text-align: center; margin-top: 20px; color: green;">
     <h3>პროექტი წარმატებით დაემატა!</h3>
 </div>
-<script>
-    document.querySelectorAll('.project-select-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const projectName = this.getAttribute('data-project');
-            
-            // Redirecting to a new page with success message
-            window.location.href = 'success.html'; // გადაყვანა მეორე გვერდზე
-        });
-    });
 
+<script>
+    document.getElementById('project-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const selectedProject = document.getElementById('project-select').value;
+        
+        // Redirecting to a new page with success message
+        window.location.href = 'success.html?project=' + encodeURIComponent(selectedProject);
+    });
 </script>
 
 <footer class="footer">
